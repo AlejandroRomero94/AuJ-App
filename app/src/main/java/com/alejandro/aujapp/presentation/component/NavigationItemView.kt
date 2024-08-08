@@ -43,7 +43,7 @@ fun NavigationItemView(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            Text(text = navigationItem.title),
+            text = navigationItem.title,
             color= if (selected) MaterialTheme.colorScheme.primary
             else MaterialTheme.colorScheme.onSurface,
             fontWeight = if(selected) FontWeight.Bold else FontWeight.Normal,

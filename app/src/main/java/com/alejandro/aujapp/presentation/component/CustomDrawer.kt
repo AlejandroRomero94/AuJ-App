@@ -40,7 +40,7 @@ fun CustomDrawer(
                 .fillMaxWidth()
                 .padding(top = 24.dp)
         ) {
-            IconButton(onClick = { onCloseClick }) {
+            IconButton(onClick =  onCloseClick ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "Back Arrow Icon",
@@ -51,7 +51,7 @@ fun CustomDrawer(
         }
         Spacer(modifier = Modifier.height(24.dp))
         Image(
-            painter = painterResource(id = R.drawable.Profile),
+            painter = painterResource(id = R.drawable.profile),
             contentDescription = "My photo"
         )
         Spacer(modifier = Modifier.height(40.dp))
