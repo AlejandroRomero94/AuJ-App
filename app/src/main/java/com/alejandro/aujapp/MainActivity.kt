@@ -25,15 +25,20 @@ class MainActivity : ComponentActivity() {
         setContent {
             AuJAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
+                   /* Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
-                    )
+                    )*/
+
                 }
             }
         }
     }
 }
+
+
+
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
