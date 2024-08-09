@@ -26,7 +26,6 @@ fun NavigationItemView(
     navigationItem:NavigationItem,
     selected:Boolean,
     onClick:()->Unit,
-    onCloseClick:() ->Unit
 ){
     Row (
         modifier= Modifier
