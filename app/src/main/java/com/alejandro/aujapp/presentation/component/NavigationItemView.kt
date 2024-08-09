@@ -45,7 +45,7 @@ fun NavigationItemView(
         Text(
             text = navigationItem.title,
             color= if (selected) MaterialTheme.colorScheme.primary
-            else MaterialTheme.colorScheme.onSurface,
+            else Color.White,
             fontWeight = if(selected) FontWeight.Bold else FontWeight.Normal,
             lineHeight = 20.sp
         )
