@@ -34,6 +34,11 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.Navigation
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.alejandro.aujapp.domain.model.CustomDrawerState
 import com.alejandro.aujapp.domain.model.NavigationItem
 import com.alejandro.aujapp.domain.model.isOpened
@@ -44,8 +49,10 @@ import kotlin.math.roundToInt
 
 @Composable
 fun MainScreen() {
+    val navController= rememberNavController()
+
     var drawerState by remember { mutableStateOf(CustomDrawerState.Closed) }
-    var selectedNavigationItem by remember { mutableStateOf(NavigationItem.Presentation) }
+  var selectedNavigationItem by remember { mutableStateOf(NavigationItem.Presentation) }
 
     val configuration = LocalConfiguration.current
     val density = LocalDensity.current.density
@@ -80,6 +87,13 @@ fun MainScreen() {
             onNavigationItemClick = {
                 selectedNavigationItem = it
 
+                when(it){
+                    NavigationItem.Presentation ->navController.navigate("presentation")
+                    NavigationItem.Recorrido -> navController.navigate("career")
+                    NavigationItem.AuJ -> navController.navigate("auj")
+                    NavigationItem.Contacto -> navController.navigate("contact")
+                }
+
             }, onCloseClick = { drawerState = CustomDrawerState.Closed })
 
 
@@ -94,6 +108,7 @@ fun MainScreen() {
                 ),
             drawerState = drawerState,
             onDrawerClick = { drawerState = it },
+            navController=navController
         )
 
     }
@@ -104,7 +119,8 @@ fun MainScreen() {
     fun MainContent(
         modifier: Modifier = Modifier,
         drawerState: CustomDrawerState,
-        onDrawerClick: (CustomDrawerState) -> Unit
+        onDrawerClick: (CustomDrawerState) -> Unit,
+        navController:NavHostController
     ) {
         Scaffold(
             modifier = modifier
@@ -124,6 +140,16 @@ fun MainScreen() {
                 )
             }
         ) {
+            NavHost(
+                navController = navController,
+                startDestination = "presentation"
+            ) {
+                composable("presentation") { PresentationScreen() }
+                composable("career") { RecorridoScreen() }
+                composable("auj") { AuJScreen() }
+                composable("contact") { ContactoScreen() }
+            }
+            /*
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
@@ -132,8 +158,8 @@ fun MainScreen() {
                     text = "Pantalla 1",
                     fontSize = MaterialTheme.typography.titleMedium.fontSize,
                     fontWeight = FontWeight.Medium
-                )
+                )*/
             }
         }
-    }
+
 

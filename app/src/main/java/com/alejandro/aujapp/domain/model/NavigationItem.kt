@@ -1,11 +1,11 @@
 package com.alejandro.aujapp.domain.model
 
-enum class NavigationItem (
-    val title:String
-){
-   Presentation(
-       title = "Quién soy"
-   ),
+enum class NavigationItem(
+    val title: String
+) {
+    Presentation(
+        title = "Quién soy"
+    ),
     Recorrido(
         title = "Recorrido"
     ),
