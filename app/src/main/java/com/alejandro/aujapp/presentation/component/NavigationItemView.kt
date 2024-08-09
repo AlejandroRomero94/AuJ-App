@@ -25,13 +25,14 @@ import com.alejandro.aujapp.domain.model.NavigationItem
 fun NavigationItemView(
     navigationItem:NavigationItem,
     selected:Boolean,
-    onClick:()->Unit
+    onClick:()->Unit,
+    onCloseClick:() ->Unit
 ){
     Row (
         modifier= Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(size = 99.dp))
-            .clickable { onClick() }
+            .clickable { onClick()}
             .background(
                 color = if (selected) MaterialTheme.colorScheme.surfaceColorAtElevation(
                     4.dp

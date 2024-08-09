@@ -77,7 +77,8 @@ fun CustomDrawer(
                 NavigationItemView(
                     navigationItem = navigationItem,
                     selected = navigationItem == selectedNavigationItem,
-                    onClick = { onNavigationItemClick(navigationItem) })
+                    onClick = { onNavigationItemClick(navigationItem); onCloseClick()},
+                    onCloseClick=onCloseClick)
                 Spacer(modifier = Modifier.height(4.dp))
             }
             Spacer(modifier = Modifier.weight(1f))
