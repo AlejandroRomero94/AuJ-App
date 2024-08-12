@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">AuJApp</string>
+    <string name="topAppBarText">#GruposTrabajo AuJ Mobile</string>
 
     <!--Texts on Screens -->
 
@@ -19,10 +20,29 @@
         Debido a una serie de dificultades de ámbito laboral, decidí probar a reinventarme como programador
         </string>
     <string name="Career2">
-        Gracias la guia de un amigo senior, he aprendido no solo a desenvolverme con el lenguaje sino también a crear aplicaciones.
+        Gracias a la guia de un amigo senior, he aprendido no solo a desenvolverme con el lenguaje sino también a crear aplicaciones.
         </string>
     <string name="Career3">
         Tengo poca experiencia pero muchas ganas de darlo todo y abrirme un hueco en este sector.</string>
+
+    <!--Texts on AuJ -->
+    <string name="AuJ1">
+        He decidido participar en los grupos de trabajo de AuJ porque necesito experiencia como programador.
+        </string>
+    <string name="AuJ2">
+        Encuentro necesaria esta experiencia para mi formación no solo en lo relacionado con programar en sí,
+        sino por la experiencia de trabajar en un equipo con un proyecto real,
+        o tan pegado a la realidad laboral como sea posible.
+        </string>
+
+    <!--Texts on Contact -->
+    <string name="Contact1">
+        Email: romeroporras94@gmail.com
+        </string>
+    <string name="Contact2">
+        Telefono: +34691185887
+        </string>
+
 </resources>
 
 

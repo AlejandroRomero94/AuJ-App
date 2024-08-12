@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -128,7 +129,7 @@ fun MainScreen() {
                     onDrawerClick(CustomDrawerState.Closed)
                 },
             topBar = {
-                TopAppBar(title = { Text(text = "Texto AppBar") },
+                TopAppBar(title = { Text(text = stringResource(id = R.string.topAppBarText)) },
                     navigationIcon = {
                         IconButton(onClick = { onDrawerClick(drawerState.opposite()) }) {
                             Icon(
