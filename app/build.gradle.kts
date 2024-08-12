@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.google.dagger.hilt.android)
-    id("kotlin-kapt")
+
 }
 
 android {
@@ -52,17 +51,10 @@ android {
 }
 
 dependencies {
-    //ViewModels
-    implementation(libs.androidx.lifecycle.runtime.ktx.v231)
-    implementation(libs.androidx.runtime.livedata)
+    
     //ComposeNavigation
     implementation(libs.androidx.navigation.compose)
-    //Corutinas
-    implementation(libs.kotlinx.coroutines.android)
 
-    //Dagger Hilt
-    kapt (libs.hilt.android.compiler)
-    implementation(libs.hilt.android)
 
     //Resto
     implementation(libs.androidx.core.ktx)

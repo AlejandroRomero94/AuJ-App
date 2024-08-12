@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
@@ -15,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -23,15 +21,15 @@ import com.alejandro.aujapp.domain.model.NavigationItem
 
 @Composable
 fun NavigationItemView(
-    navigationItem:NavigationItem,
-    selected:Boolean,
-    onClick:()->Unit,
-){
-    Row (
-        modifier= Modifier
+    navigationItem: NavigationItem,
+    selected: Boolean,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(size = 99.dp))
-            .clickable { onClick()}
+            .clickable { onClick() }
             .background(
                 color = if (selected) MaterialTheme.colorScheme.surfaceColorAtElevation(
                     4.dp
@@ -44,9 +42,9 @@ fun NavigationItemView(
     ) {
         Text(
             text = navigationItem.title,
-            color= if (selected) MaterialTheme.colorScheme.primary
+            color = if (selected) MaterialTheme.colorScheme.primary
             else Color.White,
-            fontWeight = if(selected) FontWeight.Bold else FontWeight.Normal,
+            fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal,
             lineHeight = 20.sp
         )
     }

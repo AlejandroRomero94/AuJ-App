@@ -26,17 +26,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -50,10 +47,10 @@ import kotlin.math.roundToInt
 
 @Composable
 fun MainScreen() {
-    val navController= rememberNavController()
+    val navController = rememberNavController()
 
     var drawerState by remember { mutableStateOf(CustomDrawerState.Closed) }
-  var selectedNavigationItem by remember { mutableStateOf(NavigationItem.Presentation) }
+    var selectedNavigationItem by remember { mutableStateOf(NavigationItem.Presentation) }
 
     val configuration = LocalConfiguration.current
     val density = LocalDensity.current.density
@@ -88,11 +85,11 @@ fun MainScreen() {
             onNavigationItemClick = {
                 selectedNavigationItem = it
 
-                when(it){
-                    NavigationItem.Presentation ->navController.navigate("presentation")
-                    NavigationItem.Recorrido -> navController.navigate("career")
+                when (it) {
+                    NavigationItem.Presentation -> navController.navigate("presentation")
+                    NavigationItem.Career -> navController.navigate("career")
                     NavigationItem.AuJ -> navController.navigate("auj")
-                    NavigationItem.Contacto -> navController.navigate("contact")
+                    NavigationItem.Contact -> navController.navigate("contact")
                 }
 
             }, onCloseClick = { drawerState = CustomDrawerState.Closed })
@@ -109,58 +106,50 @@ fun MainScreen() {
                 ),
             drawerState = drawerState,
             onDrawerClick = { drawerState = it },
-            navController=navController
+            navController = navController
         )
 
     }
 }
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-    @OptIn(ExperimentalMaterial3Api::class)
-    @Composable
-    fun MainContent(
-        modifier: Modifier = Modifier,
-        drawerState: CustomDrawerState,
-        onDrawerClick: (CustomDrawerState) -> Unit,
-        navController:NavHostController
-    ) {
-        Scaffold(
-            modifier = modifier
-                .clickable(enabled = drawerState == CustomDrawerState.Opened) {
-                    onDrawerClick(CustomDrawerState.Closed)
-                },
-            topBar = {
-                TopAppBar(title = { Text(text = stringResource(id = R.string.topAppBarText)) },
-                    navigationIcon = {
-                        IconButton(onClick = { onDrawerClick(drawerState.opposite()) }) {
-                            Icon(
-                                imageVector = Icons.Default.Menu,
-                                contentDescription = "Menu Icon"
-                            )
-                        }
+
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MainContent(
+    modifier: Modifier = Modifier,
+    drawerState: CustomDrawerState,
+    onDrawerClick: (CustomDrawerState) -> Unit,
+    navController: NavHostController
+) {
+    Scaffold(
+        modifier = modifier
+            .clickable(enabled = drawerState == CustomDrawerState.Opened) {
+                onDrawerClick(CustomDrawerState.Closed)
+            },
+        topBar = {
+            TopAppBar(title = { Text(text = stringResource(id = R.string.topAppBarText)) },
+                navigationIcon = {
+                    IconButton(onClick = { onDrawerClick(drawerState.opposite()) }) {
+                        Icon(
+                            imageVector = Icons.Default.Menu,
+                            contentDescription = "Menu Icon"
+                        )
                     }
-                )
-            }
-        ) {
-            NavHost(
-                navController = navController,
-                startDestination = "presentation"
-            ) {
-                composable("presentation") { PresentationScreen() }
-                composable("career") { CareerScreen() }
-                composable("auj") { AuJScreen() }
-                composable("contact") { ContactScreen() }
-            }
-            /*
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "Pantalla 1",
-                    fontSize = MaterialTheme.typography.titleMedium.fontSize,
-                    fontWeight = FontWeight.Medium
-                )*/
-            }
+                }
+            )
         }
+    ) {
+        NavHost(
+            navController = navController,
+            startDestination = "presentation"
+        ) {
+            composable("presentation") { PresentationScreen() }
+            composable("career") { CareerScreen() }
+            composable("auj") { AuJScreen() }
+            composable("contact") { ContactScreen() }
+        }
+
+    }
+}
 
 

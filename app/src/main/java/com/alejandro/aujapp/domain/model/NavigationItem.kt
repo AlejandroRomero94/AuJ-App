@@ -6,15 +6,14 @@ enum class NavigationItem(
     Presentation(
         title = "Quién soy"
     ),
-    Recorrido(
+    Career(
         title = "Recorrido"
     ),
     AuJ(
         title = "Por qué AuJ"
     ),
-    Contacto(
+    Contact(
         title = "Contacto"
     )
 }
 
-//Para cada apartado del drawer: Quien soy, mi recorrido, por qué AuJ, contacto
