@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">AuJApp</string>
+
+    <!--Texts on Screens -->
+
+    <!--Texts on Presentation -->
+    <string name="Presentation1">
+        ¡Hola! Me llamo Alejandro Romero Porras y soy desarrollador de aplicaciones Android.</string>
+    <string name="Presentation2">
+        He desarrollado esta aplicación usando Kotlin y Android Studio.
+    Aquí contaré de dónde vengo y por qué he elegido participar en los grupos de trabajo de Adopta un Junior.</string>
+
+    <string name="Presentation3">
+        Despliegue el menú lateral para acceder a las distintas secciones. ¡Gracias por la oportunidad!.</string>
+
+    <!--Texts on Career -->
+    <string name="Career1">
+        Antes de empezar a programar he sido profesor de idiomas en la educación secundaria.
+        Debido a una serie de dificultades de ámbito laboral, decidí probar a reinventarme como programador
+        </string>
+    <string name="Career2">
+        Gracias la guia de un amigo senior, he aprendido no solo a desenvolverme con el lenguaje sino también a crear aplicaciones.
+        </string>
+    <string name="Career3">
+        Tengo poca experiencia pero muchas ganas de darlo todo y abrirme un hueco en este sector.</string>
 </resources>
+
+
