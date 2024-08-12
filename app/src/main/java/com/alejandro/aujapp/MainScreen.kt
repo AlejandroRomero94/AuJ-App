@@ -146,9 +146,9 @@ fun MainScreen() {
                 startDestination = "presentation"
             ) {
                 composable("presentation") { PresentationScreen() }
-                composable("career") { RecorridoScreen() }
+                composable("career") { CareerScreen() }
                 composable("auj") { AuJScreen() }
-                composable("contact") { ContactoScreen() }
+                composable("contact") { ContactScreen() }
             }
             /*
             Box(

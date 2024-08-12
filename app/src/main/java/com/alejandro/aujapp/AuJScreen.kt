@@ -53,7 +53,7 @@ fun AuJScreen(){
                     .size(200.dp),
                     contentAlignment = Alignment.Center
                 ){
-                    Image(painter = painterResource(id = R.drawable.sendero),
+                    Image(painter = painterResource(id = R.drawable.coding),
                         contentDescription = "Career logo",
                         modifier=Modifier
                             .fillMaxSize()
