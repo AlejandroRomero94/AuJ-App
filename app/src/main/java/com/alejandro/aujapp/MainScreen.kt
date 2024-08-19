@@ -6,6 +6,7 @@ import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -29,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
@@ -72,6 +74,16 @@ fun MainScreen() {
         drawerState = CustomDrawerState.Closed
     }
 
+    val gestureDetector = Modifier.pointerInput(Unit) {
+        detectHorizontalDragGestures { change, dragAmount ->
+            if (dragAmount > 0 && !drawerState.isOpened()) {
+                drawerState = CustomDrawerState.Opened
+            } else if (dragAmount < 0 && drawerState.isOpened()) {
+                drawerState = CustomDrawerState.Closed
+            }
+        }
+    }
+
     Box(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.surface)
@@ -79,6 +91,7 @@ fun MainScreen() {
             .statusBarsPadding()
             .navigationBarsPadding()
             .fillMaxSize()
+            .then(gestureDetector)
     ) {
         CustomDrawer(
             selectedNavigationItem = selectedNavigationItem,
@@ -148,8 +161,5 @@ fun MainContent(
             composable("auj") { AuJScreen() }
             composable("contact") { ContactScreen() }
         }
-
     }
 }
-
-
