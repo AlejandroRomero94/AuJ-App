@@ -31,6 +31,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -127,12 +128,13 @@ fun MainContent(
                 onDrawerClick(CustomDrawerState.Closed)
             },
         topBar = {
-            TopAppBar(title = { Text(text = stringResource(id = R.string.topAppBarText)) },
+            TopAppBar(title = { Text(text = stringResource(id = R.string.topAppBarText), modifier.testTag("TopAppBarText")) },
                 navigationIcon = {
                     IconButton(onClick = { onDrawerClick(drawerState.opposite()) }) {
                         Icon(
                             imageVector = Icons.Default.Menu,
-                            contentDescription = "Menu Icon"
+                            contentDescription = "Menu Icon",
+                            modifier.testTag("IconText")
                         )
                     }
                 }

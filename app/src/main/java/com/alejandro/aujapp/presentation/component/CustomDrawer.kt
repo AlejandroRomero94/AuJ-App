@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.alejandro.aujapp.R
@@ -40,7 +41,7 @@ fun CustomDrawer(
         Image(
             painter = painterResource(id = R.drawable.background_drawer),
             contentDescription = "background",
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().testTag("Image1"),
             contentScale = ContentScale.Crop
         )
         Column(
@@ -58,7 +59,7 @@ fun CustomDrawer(
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = "Back Arrow Icon",
-                        tint = Color.White
+                        tint = Color.White,
                     )
                 }
             }
@@ -68,6 +69,7 @@ fun CustomDrawer(
                 contentDescription = "My photo",
                 modifier = Modifier
                     .clip(CircleShape)
+                    .testTag("Image2")
                     .border(5.dp, Color.White, CircleShape)
             )
             Spacer(modifier = Modifier.height(40.dp))

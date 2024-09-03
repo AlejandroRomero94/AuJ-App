@@ -45,7 +45,8 @@ fun NavigationItemView(
             color = if (selected) MaterialTheme.colorScheme.primary
             else Color.White,
             fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal,
-            lineHeight = 20.sp
+            lineHeight = 20.sp,
+
         )
     }
 
