@@ -128,13 +128,15 @@ fun MainContent(
                 onDrawerClick(CustomDrawerState.Closed)
             },
         topBar = {
-            TopAppBar(title = { Text(text = stringResource(id = R.string.topAppBarText), modifier.testTag("TopAppBarText")) },
+            TopAppBar(title = { Text(text = stringResource(id = R.string.topAppBarText)) },
+                modifier.testTag("TopAppBarText"),
                 navigationIcon = {
-                    IconButton(onClick = { onDrawerClick(drawerState.opposite()) }) {
+                    IconButton(modifier = modifier.testTag("IconButton"),
+                        onClick = { onDrawerClick(drawerState.opposite()) }) {
                         Icon(
                             imageVector = Icons.Default.Menu,
                             contentDescription = "Menu Icon",
-                            modifier.testTag("IconText")
+                            modifier.testTag("IconImage")
                         )
                     }
                 }

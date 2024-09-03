@@ -1,5 +1,8 @@
 package com.alejandro.aujapp.presentation
 
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertIsNotDisplayed
+import androidx.compose.ui.test.isDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
@@ -25,9 +28,10 @@ class CustomDrawerTest {
 
         }
         //Finder
-        composeTestRule.onNodeWithTag("Image1")
-        composeTestRule.onNodeWithContentDescription("Back Arrow Icon")
-        composeTestRule.onNodeWithTag("Image2")
+        composeTestRule.onNodeWithTag("Drawer").assertExists().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("Image1").assertExists()
+        composeTestRule.onNodeWithContentDescription("Back Arrow Icon").assertExists()
+        composeTestRule.onNodeWithTag("Image2").assertExists()
 
     }
 }

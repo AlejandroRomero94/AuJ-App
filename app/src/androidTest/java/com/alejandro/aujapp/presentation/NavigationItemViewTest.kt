@@ -1,5 +1,6 @@
 package com.alejandro.aujapp.presentation
 
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
@@ -21,9 +22,7 @@ class NavigationItemViewTest {
                 selected = false, onClick = {})
 
         }
-        //Finder
-
-        composeTestRule.onNodeWithText(NavigationItem.entries.toString())
+        composeTestRule.onNodeWithText(NavigationItem.entries.toString()).assertExists().assertIsDisplayed()
 
 
     }

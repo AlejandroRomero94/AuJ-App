@@ -1,5 +1,9 @@
 package com.alejandro.aujapp
 
+import androidx.activity.ComponentActivity
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertTextEquals
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import org.junit.Rule
@@ -7,7 +11,7 @@ import org.junit.Test
 
 class AuJScreenTest{
     @get:Rule
-    val composeTestRule= createComposeRule()
+    val composeTestRule= createAndroidComposeRule<ComponentActivity>()
 
 
 
@@ -18,10 +22,10 @@ class AuJScreenTest{
 
         }
         //Finder
-        composeTestRule.onNodeWithTag("Image1")
-        composeTestRule.onNodeWithTag("Image2")
-        composeTestRule.onNodeWithTag("Text1")
-        composeTestRule.onNodeWithTag("Text2")
+        composeTestRule.onNodeWithTag("Image1").assertExists().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("Image2").assertExists().assertIsDisplayed()
+        composeTestRule.onNodeWithTag("Text1").assertExists().assertTextEquals(composeTestRule.activity.getString(R.string.AuJ1))
+        composeTestRule.onNodeWithTag("Text2").assertExists().assertTextEquals(composeTestRule.activity.getString(R.string.AuJ2))
 
     }
 

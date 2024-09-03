@@ -37,6 +37,7 @@ fun CustomDrawer(
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth(0.6f)
+            .testTag("Drawer")
     ) {
         Image(
             painter = painterResource(id = R.drawable.background_drawer),
